@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Fortis Asia</title>
+  <script>
+    // Store the current path and redirect to index.html
+    // The React app will handle the routing from there
+    const path = window.location.pathname.replace('/fortis-dev', '');
+    const params = window.location.search;
+    const hash = window.location.hash;
+    
+    // Redirect to the main page with the path stored in sessionStorage
+    sessionStorage.setItem('redirectPath', path + params + hash);
+    window.location.replace('/fortis-dev/');
+  </script>
+</head>
+<body>
+  <div>Redirecting...</div>
+</body>
+</html>
