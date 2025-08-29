@@ -10,7 +10,7 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  base: process.env.NODE_ENV === 'production' ? '/repository-name/' : '/',
+  base: process.env.NODE_ENV === 'production' ? '/fortis-dev/' : '/',
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
