@@ -76,8 +76,11 @@ const AboutUs = () => {
             </AnimatedSection>
             <AnimatedSection animation="fadeInRight" delay={200}>
               <div className="relative">
-                <div className="aspect-video bg-gray-200 rounded-2xl shadow-lg flex items-center justify-center hover:shadow-xl transition-shadow duration-300">
-                  <Users className="w-16 h-16 text-gray-400" />
+                <div className="aspect-video bg-gray-200 rounded-2xl shadow-lg flex items-center justify-center hover:shadow-xl transition-shadow duration-300"
+                  style={{
+                    backgroundSize: 'cover',
+                    backgroundImage: "url('https://fortis-asia.com/wp-content/uploads/2023/09/nastuh-abootalebi-eHD8Y1Znfpk-unsplash.jpg')"
+                  }}>
                 </div>
               </div>
             </AnimatedSection>

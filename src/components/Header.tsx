@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Menu, X, ChevronDown } from 'lucide-react'
 import { Button } from './ui/button'
 
@@ -7,6 +7,7 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [brandsDropdownOpen, setBrandsDropdownOpen] = useState(false)
   const location = useLocation()
+  const navigate = useNavigate()
 
   const navigation = [
     { name: 'Home', href: '/', type: 'link' },
@@ -41,20 +42,21 @@ const Header = () => {
             {navigation.map((item) => (
               <div key={item.name} className="relative">
                 {item.type === 'dropdown' ? (
-                  <div className="relative">
+                  <div
+                    className="relative"
+                    onMouseEnter={() => setBrandsDropdownOpen(true)}
+                    onMouseLeave={() => setBrandsDropdownOpen(false)}
+                  >
                     <button
                       className="flex items-center text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium"
-                      onMouseEnter={() => setBrandsDropdownOpen(true)}
-                      onMouseLeave={() => setBrandsDropdownOpen(false)}
+                      onClick={() => navigate(item.href)}
                     >
                       {item.name}
                       <ChevronDown className="ml-1 h-4 w-4" />
                     </button>
                     {brandsDropdownOpen && (
                       <div
-                        className="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md py-1 z-50"
-                        onMouseEnter={() => setBrandsDropdownOpen(true)}
-                        onMouseLeave={() => setBrandsDropdownOpen(false)}
+                        className="absolute left-0 top-full w-48 bg-white shadow-lg rounded-md py-1 z-50"
                       >
                         {item.submenu?.map((subItem) => (
                           <Link
@@ -138,13 +140,13 @@ const Header = () => {
                       {item.name}
                     </Link>
                   ) : (
-                    <a
-                      href={item.href}
+                    <Link
+                      to={item.href}
                       className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {item.name}
-                    </a>
+                    </Link>
                   )}
                   {item.submenu && (
                     <div className="pl-6 space-y-1">

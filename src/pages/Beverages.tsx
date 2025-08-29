@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Coffee, ArrowLeft, Star, Award, Globe } from 'lucide-react'
+import AnimatedSection from '../components/AnimatedSection'
 
 const Beverages = () => {
   const features = [
@@ -39,6 +40,7 @@ const Beverages = () => {
         
         <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8 flex items-center min-h-[60vh]">
           <div className="w-full">
+            <AnimatedSection animation="fadeInUp">
             <nav className="mb-8">
               <Link 
                 to="/brands" 
@@ -48,19 +50,24 @@ const Beverages = () => {
                 Back to Brands
               </Link>
             </nav>
+            </AnimatedSection>
             
-            <div className="flex items-center mb-6">
-              <div className="w-16 h-16 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full flex items-center justify-center mr-6">
-                <Coffee className="w-8 h-8 text-white" />
+            <AnimatedSection animation="fadeInUp" delay={100}>
+              <div className="flex items-center mb-6">
+                <div className="w-16 h-16 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full flex items-center justify-center mr-6">
+                  <Coffee className="w-8 h-8 text-white" />
+                </div>
+                <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+                  <span className="text-yellow-400">Beverages</span>
+                </h1>
               </div>
-              <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-                <span className="text-yellow-400">Beverages</span>
-              </h1>
-            </div>
+            </AnimatedSection>
             
-            <p className="max-w-3xl text-xl text-gray-200 sm:text-2xl">
-              Whether you seek a caffeine kick or a refreshing sip, our curated collection ensures that every beverage moment becomes a memorable one.
-            </p>
+            <AnimatedSection animation="fadeInUp" delay={200}>
+              <p className="max-w-3xl text-xl text-gray-200 sm:text-2xl">
+                Whether you seek a caffeine kick or a refreshing sip, our curated collection ensures that every beverage moment becomes a memorable one.
+              </p>
+            </AnimatedSection>
           </div>
         </div>
       </section>
@@ -68,24 +75,28 @@ const Beverages = () => {
       {/* Features Section */}
       <section className="py-16 bg-gray-50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Why Choose Our Beverage Brands</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              From refreshing soft drinks to premium coffee, we bring the world's best beverages to Vietnam.
-            </p>
-          </div>
+          <AnimatedSection animation="fadeInUp">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">Why Choose Our Beverage Brands</h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                From refreshing soft drinks to premium coffee, we bring the world's best beverages to Vietnam.
+              </p>
+            </div>
+          </AnimatedSection>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {features.map((feature, index) => {
               const IconComponent = feature.icon
               return (
-                <div key={index} className="text-center">
-                  <div className="w-16 h-16 mx-auto mb-4 bg-amber-100 rounded-full flex items-center justify-center">
-                    <IconComponent className="w-8 h-8 text-amber-600" />
+                <AnimatedSection key={index} animation="fadeInUp" delay={index * 100}>
+                  <div className="text-center">
+                    <div className="w-16 h-16 mx-auto mb-4 bg-amber-100 rounded-full flex items-center justify-center">
+                      <IconComponent className="w-8 h-8 text-amber-600" />
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
+                    <p className="text-gray-600">{feature.description}</p>
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
-                  <p className="text-gray-600">{feature.description}</p>
-                </div>
+                </AnimatedSection>
               )
             })}
           </div>
@@ -95,25 +106,28 @@ const Beverages = () => {
       {/* Brands Grid */}
       <section className="py-16 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Beverage Partners</h2>
-            <p className="text-lg text-gray-600">
-              Leading beverage brands that refresh and energize Vietnamese consumers
-            </p>
-          </div>
+          <AnimatedSection animation="fadeInUp">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Beverage Partners</h2>
+              <p className="text-lg text-gray-600">
+                Leading beverage brands that refresh and energize Vietnamese consumers
+              </p>
+            </div>
+          </AnimatedSection>
           
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-            {brandLogos.map((brand) => (
-              <div
-                key={brand.id}
-                className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow duration-300 text-center group"
-              >
-                <div className="w-20 h-20 bg-gradient-to-br from-amber-400 to-orange-400 rounded-lg mx-auto mb-4 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
-                  <Coffee className="w-10 h-10 text-white" />
+            {brandLogos.map((brand, index) => (
+              <AnimatedSection key={brand.id} animation="fadeInUp" delay={index * 50}>
+                <div
+                  className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow duration-300 text-center group"
+                >
+                  <div className="w-20 h-20 bg-gradient-to-br from-amber-400 to-orange-400 rounded-lg mx-auto mb-4 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                    <Coffee className="w-10 h-10 text-white" />
+                  </div>
+                  <h3 className="font-semibold text-gray-900 mb-2">{brand.name}</h3>
+                  <p className="text-sm text-gray-600">{brand.description}</p>
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-2">{brand.name}</h3>
-                <p className="text-sm text-gray-600">{brand.description}</p>
-              </div>
+              </AnimatedSection>
             ))}
           </div>
         </div>
@@ -122,21 +136,25 @@ const Beverages = () => {
       {/* Product Categories */}
       <section className="py-16 bg-gray-50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Product Categories</h2>
-            <p className="text-lg text-gray-600">
-              Complete beverage solutions for every taste and occasion
-            </p>
-          </div>
+          <AnimatedSection animation="fadeInUp">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">Product Categories</h2>
+              <p className="text-lg text-gray-600">
+                Complete beverage solutions for every taste and occasion
+              </p>
+            </div>
+          </AnimatedSection>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {['Coffee & Tea', 'Soft Drinks', 'Energy Drinks', 'Juices & Water'].map((category, index) => (
-              <div key={index} className="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-shadow duration-300">
-                <div className="w-12 h-12 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <Coffee className="w-6 h-6 text-white" />
+              <AnimatedSection key={index} animation="fadeInUp" delay={index * 100}>
+                <div className="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-shadow duration-300">
+                  <div className="w-12 h-12 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full mx-auto mb-4 flex items-center justify-center">
+                    <Coffee className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="font-semibold text-gray-900">{category}</h3>
                 </div>
-                <h3 className="font-semibold text-gray-900">{category}</h3>
-              </div>
+              </AnimatedSection>
             ))}
           </div>
         </div>
@@ -145,17 +163,19 @@ const Beverages = () => {
       {/* CTA Section */}
       <section className="py-16 bg-gradient-to-r from-amber-600 to-orange-600 text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-4">Interested in Our Beverage Brands?</h2>
-          <p className="text-xl text-amber-100 mb-8 max-w-2xl mx-auto">
-            Contact us to learn more about our beverage portfolio and distribution opportunities.
-          </p>
-          <Link
-            to="/contact-us"
-            className="inline-flex items-center bg-white text-amber-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300"
-          >
-            Get in Touch
-            <ArrowLeft className="w-5 h-5 ml-2 rotate-180" />
-          </Link>
+          <AnimatedSection animation="fadeInUp">
+            <h2 className="text-3xl font-bold mb-4">Interested in Our Beverage Brands?</h2>
+            <p className="text-xl text-amber-100 mb-8 max-w-2xl mx-auto">
+              Contact us to learn more about our beverage portfolio and distribution opportunities.
+            </p>
+            <Link
+              to="/contact-us"
+              className="inline-flex items-center bg-white text-amber-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300"
+            >
+              Get in Touch
+              <ArrowLeft className="w-5 h-5 ml-2 rotate-180" />
+            </Link>
+          </AnimatedSection>
         </div>
       </section>
     </div>
