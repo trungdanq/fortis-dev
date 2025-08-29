@@ -14,7 +14,7 @@ const AnimatedSection = ({
   delay = 0,
   animation = 'fadeInUp'
 }: AnimatedSectionProps) => {
-  const { elementRef, isVisible } = useScrollAnimation({ delay, triggerOnce: true })
+  const { elementRef, isVisible } = useScrollAnimation<HTMLDivElement>({ delay, triggerOnce: true })
 
   const getAnimationClass = () => {
     switch (animation) {

@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom'
 import { Button } from './ui/button'
-import { useScrollAnimation, fadeInUp, fadeIn } from '../hooks/useScrollAnimation'
+import { useScrollAnimation, fadeInUp } from '../hooks/useScrollAnimation'
 
 const HeroSection = () => {
-  const { elementRef: titleRef, isVisible: titleVisible } = useScrollAnimation({ delay: 200 })
-  const { elementRef: subtitleRef, isVisible: subtitleVisible } = useScrollAnimation({ delay: 400 })
-  const { elementRef: buttonRef, isVisible: buttonVisible } = useScrollAnimation({ delay: 600 })
+  const { elementRef: titleRef, isVisible: titleVisible } = useScrollAnimation<HTMLHeadingElement>({ delay: 200 })
+  const { elementRef: subtitleRef, isVisible: subtitleVisible } = useScrollAnimation<HTMLParagraphElement>({ delay: 400 })
+  const { elementRef: buttonRef, isVisible: buttonVisible } = useScrollAnimation<HTMLDivElement>({ delay: 600 })
 
   return (
     <section 

@@ -1,4 +1,4 @@
-import { CheckCircle, Target, Eye, Users, Globe, Award } from 'lucide-react'
+import { CheckCircle, Target, Eye, Users, Globe } from 'lucide-react'
 import AnimatedSection from '../components/AnimatedSection'
 
 const AboutUs = () => {
